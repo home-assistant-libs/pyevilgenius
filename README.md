@@ -9,7 +9,7 @@ import asyncio
 from pprint import pprint
 
 import aiohttp
-from aioeagle import EagleHub
+from pyevilgenius import EvilGeniusDevice
 
 
 HOST = "192.168.1.113"
@@ -51,4 +51,4 @@ with async_timeout.timeout(10):
 
 ## Contribution guidelines
 
-Object hierarchy and property/method names should match the EAGLE-200 API.
+Object hierarchy and property/method names should match the Evil Genius Device APIs.
