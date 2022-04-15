@@ -15,12 +15,17 @@ class EvilGeniusDevice:
         self._request_lock = asyncio.Lock()
 
     async def get_info(self):
-        """Get the info from the Evil Genius service."""
+        """Get the info."""
         async with self._request_lock, self._session.get(f"{self.url}/info") as resp:
             return await resp.json()
 
-    async def get_data(self):
-        """Get the data from the Evil Genius service."""
+    async def get_product(self):
+        """Get the product name."""
+        async with self._request_lock, self._session.get(f"{self.url}/product") as resp:
+            return await resp.json()
+
+    async def get_all(self):
+        """Get all the data."""
         async with self._request_lock, self._session.get(f"{self.url}/all") as resp:
             data = await resp.json()
 
@@ -39,3 +44,18 @@ class EvilGeniusDevice:
             f"{self.url}/solidColor?r={red}&g={green}&b={blue}"
         ) as resp:
             resp.raise_for_status()
+
+    async def get_field_value(self, name: str):
+        """Query the field value endpoint."""
+        async with self._request_lock, self._session.get(
+            f"{self.url}/fieldValue", params={"name": name}
+        ) as resp:
+            return await resp.text()
+
+    async def set_field_value(self, name: str, value: Any):
+        """Set a value using the field value endpoint."""
+        async with self._request_lock, self._session.post(
+            f"{self.url}/fieldValue", params={"name": name, "value": value}
+        ) as resp:
+            resp.raise_for_status()
+            return await resp.text()

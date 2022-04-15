@@ -21,7 +21,7 @@ async def run(websession):
     host = sys.argv[1]
     device = pyevilgenius.EvilGeniusDevice(host, websession)
 
-    data = await device.get_data()
+    data = await device.get_all()
 
     for item in data.values():
         if "value" not in item:
