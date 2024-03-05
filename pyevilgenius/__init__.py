@@ -1,4 +1,5 @@
 """Python SDK for controlling devices by Evil Genius Labs."""
+
 import asyncio
 from typing import Any
 
