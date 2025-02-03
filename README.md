@@ -2,7 +2,7 @@
 
 ## Asynchronous library to control devices by Evil Genius Labs
 
-Requires Python 3.8+ and uses asyncio and aiohttp.
+Requires Python 3.9+ and uses asyncio and aiohttp.
 
 ```python
 import asyncio
