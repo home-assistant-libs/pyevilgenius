@@ -16,7 +16,7 @@ setup(
     packages=["pyevilgenius"],
     zip_safe=True,
     platforms="any",
-    python_requires=">=3.9",
+    python_requires=">=3.10",
     install_requires=list(val.strip() for val in open("requirements.txt")),
     classifiers=[
         "Intended Audience :: Developers",
